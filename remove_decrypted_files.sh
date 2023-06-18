@@ -1,5 +1,9 @@
 #!/bin/bash
-if [ $1 != "y" ]; then
+if [ $EUID -ne 0 ]; then
+echo "Please run as root."
+exit 1
+fi
+if [[ $1 != "y" ]]; then
 echo "This will remove the /mnt/decrypted and the /mnt/tmp files."
 read -rp "Do you want to remove the files? (Answer with y or n) " answer
 if [ $answer != "y" ]; then
