@@ -1,9 +1,11 @@
 #!/bin/bash
+if [ $1 != "y" ]; then
 echo "This will remove the /mnt/decrypted and the /mnt/tmp files."
 read -rp "Do you want to remove the files? (Answer with y or n) " answer
 if [ $answer != "y" ]; then
 echo "Bye bye!"
 exit
+fi
 fi
 if [ -e /mnt/decrypted ]; then
 :
